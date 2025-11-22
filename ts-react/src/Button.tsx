@@ -1,11 +1,8 @@
-import { FC, ReactNode } from "react";
-
-export interface IButtonProps {
-  children: ReactNode;
-  onClick: () => void;
-  className?: string;
-}
+import { FC } from "react";
+import { IButtonProps } from "./interfaces/button-props.ts";
 
 export const Button: FC<IButtonProps> = (props) => {
-  return <button className={props.className} onClick={props.onClick}>{props.children}</button>;
+  return <button className={props.className} onClick={props.onClick}>
+        {props.children}
+    </button>;
 };
