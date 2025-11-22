@@ -1,4 +1,4 @@
-// Массивы и кортежи в TypeScript
+// Масиви й кортежі в TypeScript
 // =======================================
 
 // Arrays
@@ -7,12 +7,12 @@ const namesArr: string[] = ["Alice", "Bob", "Charlie"];
 const mixedArray: (number | string)[] = [1, "hello", 2, "world"];
 
 // Tuples
-// Кортежи — это массивы с фиксированным числом элементов и известными типами для каждой позиции.
+// Кортежі — це масиви з фіксованою кількістю елементів і відомими типами для кожної позиції.
 const personArr: [string, number] = ["Alice", 30];
 // personArr[0] = 30; // Error: Type 'number' is not assignable to type 'string'
 // personArr[2] = "extra"; // Error: Tuple type '[string, number]' of length '2' has no element at index '2'
 
-// Пример: координаты
+// Приклад: координати
 const coordinates: [number, number] = [10, 20];
 const point3D: [number, number, number] = [1, 2, 3];
 

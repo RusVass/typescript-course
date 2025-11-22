@@ -1,17 +1,17 @@
 // Union Types:
-// Тип объединения позволяет переменной иметь один из нескольких типов
-// Обозначается символом вертикальной черты (|), разделяющим возможные типы.
+// Тип об’єднання дає змогу змінній мати один із кількох типів
+// Позначається вертикальною рискою (|), що розділяє можливі типи.
 
 let result: number | string;
 
-result = 10; // Валидно: result может быть числом
-result = "Success"; // Валидно: result может быть строкой
-// result = true;  // Ошибка: result не может быть булевым значением
+result = 10; // Валідно: result може бути числом
+result = "Success"; // Валідно: result може бути рядком
+// result = true;  // Помилка: result не може бути булевим значенням
 
 function printResult(value: number | string) {
     console.log(`Result: ${value}`);
 }
 
-printResult(15); // Валидно
-printResult("Error"); // Валидно
-// printResult(false); // Ошибка
+printResult(15); // Валідно
+printResult("Error"); // Валідно
+// printResult(false); // Помилка

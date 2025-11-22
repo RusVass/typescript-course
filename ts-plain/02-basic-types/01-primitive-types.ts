@@ -1,4 +1,4 @@
-// Примитивные типы в TypeScript
+// Примітивні типи в TypeScript
 // =====================================
 
 // Number type
@@ -19,10 +19,10 @@ const emptyValue: null = null;
 // Undefined type
 const notDefined: undefined = undefined;
 
-// Примеры ошибок типизации
+// Приклади помилок типізації
 // age = "25";
 // firstName = 33;
-// emptyValue = undefined // НО - ошибки нет, если `strict` в `tsconfig.json` установлен в `false`
+// emptyValue = undefined // Але помилки немає, якщо `strict` у `tsconfig.json` встановлено в `false`
 
 
 console.log(`

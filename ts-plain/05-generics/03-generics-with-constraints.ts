@@ -1,13 +1,13 @@
-// Пример дженерика с ограничением
+// Приклад дженерика з обмеженням
 function logValue<T extends { value: string }>(obj: T): void {
     console.log(obj.value);
 }
   
-logValue({ value: "Hello" }); // Работает нормально
-// logValue({ val: "Hi" }); // Ошибка: Отсутствует свойство 'value'
+logValue({ value: "Hello" }); // Працює коректно
+// logValue({ val: "Hi" }); // Помилка: відсутня властивість 'value'
 
 // ------------------------------------------------------------
-// Пример универсального класса с типом по умолчанию
+// Приклад універсального класу з типом за замовчуванням
 class DataHolder<T = string> {
     data: T;
 
@@ -20,7 +20,7 @@ class DataHolder<T = string> {
     }
 }
 
-// Пример использования
+// Приклад використання
 const stringHolder = new DataHolder("Some string");
 console.log(stringHolder.getData()); // Output: Some string
 

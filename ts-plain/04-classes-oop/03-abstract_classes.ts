@@ -1,42 +1,42 @@
-// Абстрактные классы в TypeScript
+// Абстрактні класи в TypeScript
 
 abstract class Shape {
-    // Абстрактный метод, который должен быть реализован в подклассах
+    // Абстрактний метод, який мають реалізувати підкласи
     abstract calculateArea(): number;
   
-    // Метод, который может быть использован всеми фигурами
+    // Метод, який можуть використовувати всі фігури
     displayShapeType(shapeType: string): void {
-      console.log(`Это ${shapeType}.`);
+      console.log(`Це ${shapeType}.`);
     }
   }
   
-// Интерфейс с дополнительными свойствами для круга
+// Інтерфейс із додатковими властивостями для кола
 interface ICircleProperties {
     radius: number;
 }
   
-// Класс, наследующий от абстрактного класса и реализующий интерфейс
+// Клас, що наслідує абстрактний клас і реалізує інтерфейс
 class Circle extends Shape implements ICircleProperties {
     radius: number;
 
     constructor(radius: number) {
-        super(); // Вызов конструктора базового класса
+        super(); // Виклик конструктора базового класу
         this.radius = radius;
     }
 
-    // Имплементация абстрактного метода из базового класса
+    // Реалізація абстрактного методу з базового класу
     calculateArea(): number {
         return Math.PI * this.radius * this.radius;
     }
 }
   
-// Интерфейс с дополнительными свойствами для прямоугольника 
+// Інтерфейс із додатковими властивостями для прямокутника 
 interface IRectangleProperties {
     width: number;
     height: number;
 }
 
-// Класс Прямоугольник, наследующий от абстрактного класса и реализующий интерфейс
+// Клас Прямокутник, що наслідує абстрактний клас і реалізує інтерфейс
 class Rectangle extends Shape implements IRectangleProperties {
     width: number;
     height: number;
@@ -47,17 +47,17 @@ class Rectangle extends Shape implements IRectangleProperties {
         this.height = height;
     }
 
-    // Имплементация абстрактного метода из базового класса
+    // Реалізація абстрактного методу з базового класу
     calculateArea(): number {
         return this.width * this.height;
     }
 }
 
-// Пример использования
+// Приклад використання
 const myCircle = new Circle(5);
-myCircle.displayShapeType("Круг"); // Это Круг.
-console.log(`Площадь круга: ${myCircle.calculateArea()}`); // Площадь круга: 78.53981633974483
+myCircle.displayShapeType("Коло"); // Це Коло.
+console.log(`Площа кола: ${myCircle.calculateArea()}`); // Площа кола: 78.53981633974483
 
 const myRectangle = new Rectangle(4, 6);
-myRectangle.displayShapeType("Прямоугольник"); // Это Прямоугольник.
-console.log(`Площадь прямоугольника: ${myRectangle.calculateArea()}`); // Площадь прямоугольника: 24
+myRectangle.displayShapeType("Прямокутник"); // Це Прямокутник.
+console.log(`Площа прямокутника: ${myRectangle.calculateArea()}`); // Площа прямокутника: 24

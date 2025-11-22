@@ -1,14 +1,14 @@
 {
-// Декораторы в TypeScript - это специальный вид объявления, который можно прикрепить
-// к классу, методу, свойству или параметру. Они позволяют добавить дополнительную
-// функциональность или изменить поведение элемента, к которому прикреплены.
-// Декораторы нужны для метапрограммирования - возможности модифицировать код во время
-// выполнения программы, добавляя или изменяя поведение элементов кода динамически.
+// Декоратори в TypeScript — це спеціальні оголошення, які можна прикріпити
+// до класу, методу, властивості чи параметра. Вони дозволяють додати додаткову
+// функціональність або змінити поведінку елемента, до якого прикріплені.
+// Декоратори потрібні для метапрограмування — можливості модифікувати код під час
+// виконання програми, динамічно додаючи або змінюючи поведінку елементів.
 
-// Чтобы декораторы работали в tsconfig.json нужно включить "experimentalDecorators": true,
-// также можно использовать //@ts-ignore чтобы отключить проверку на ошибки (используйте в крайнем случае)
+// Щоб декоратори працювали, у tsconfig.json потрібно увімкнути "experimentalDecorators": true,
+// також можна використати //@ts-ignore, щоб вимкнути перевірку на помилки (лише у крайніх випадках)
 
-// Декораторы класса для логирования
+// Декоратори класу для логування
 function Logging1(constructor: Function) {
     console.log("ClassLogging1", constructor);
 }
@@ -37,7 +37,7 @@ class MyClass {
     }
 }
 
-const myClass = new MyClass('Маша');
+const myClass = new MyClass('Марія');
 
 // --------------------------------------------------------
 // декоратор @Component
@@ -75,24 +75,24 @@ function Component(metadata: ComponentMetadata) {
     template: "<h2>{{title}}</h2>",
 })
 class AppComponent {
-    title = "Привет мир!";
+    title = "Привіт, світе!";
 
     constructor() {
-        console.log("AppComponent создан");
+        console.log("AppComponent створений");
     }
 }
 
 const app = new AppComponent();
 
 // --------------------------------------------------------
-// Декоратор для проверки прав доступа
+// Декоратор для перевірки прав доступу
 function checkPermission(role: string) {
     return function (target: any, propertyName: string, descriptor: PropertyDescriptor) {
         const originalMethod = descriptor.value;
 
         descriptor.value = function (...args: any[]) {
             if (role !== 'admin') {
-                console.log(`Доступ запрещен для роли: ${role}`);
+                console.log(`Доступ заборонено для ролі: ${role}`);
                 return;
             }
             return originalMethod.apply(this, args);
@@ -105,7 +105,7 @@ function checkPermission(role: string) {
 class SecureService {
     @checkPermission('admin')
     performSensitiveOperation(): void {
-        console.log('Выполнение чувствительной операции');
+        console.log('Виконання чутливої операції');
     }
 }
 

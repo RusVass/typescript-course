@@ -1,5 +1,5 @@
-// any допускает любой тип без проверки типа
-// unknown требует проверки типа перед использованием
+// any дозволяє будь-який тип без перевірки типу
+// unknown вимагає перевірки типу перед використанням
 
 const anyValue: any = "this is a string";
 const strLength: number = anyValue.length;

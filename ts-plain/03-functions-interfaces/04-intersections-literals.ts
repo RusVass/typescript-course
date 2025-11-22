@@ -1,7 +1,7 @@
-// Intersection Types (Типы пересечения):
-// Тип пересечения объединяет несколько типов в один Результирующий тип
-// обладает всеми свойствами объединенных типов
-// Он обозначается символом амперсанда (&)
+// Intersection Types (Типи перетину):
+// Тип перетину об’єднує кілька типів в один, і результат
+// має всі властивості поєднаних типів.
+// Позначається символом амперсанда (&).
 
 interface IName {
     name: string;
@@ -11,19 +11,19 @@ interface IAge {
   age: number;
 }
 
-type Person = IName & IAge;  // Person должен иметь оба свойства name и age
+type Person = IName & IAge;  // Person має містити обидві властивості name і age
 
 const person: Person = {
   name: "Alice",
   age: 30,
 };
 
-console.log(person.name, person.age); // Валидно
+console.log(person.name, person.age); // Валідно
 
-// const incompletePerson: Person = { name: "Bob" };  // Ошибка
+// const incompletePerson: Person = { name: "Bob" };  // Помилка
 
 // =======================================
-// Использование пересечения типов с существующими объектами:
+// Використання перетину типів з наявними об’єктами:
 interface IAddress {
   street: string;
   city: string;
@@ -31,7 +31,7 @@ interface IAddress {
 
 const user = {
   id: 1,
-  name: "Вася",
+  name: "Василь",
 };
 
 type UserWithAddress = typeof user & IAddress;
@@ -42,12 +42,12 @@ const userWithAddress: UserWithAddress = {
   city: "Ямайка",
 };
 
-// { id: 1, name: 'Вася', street: '123 Main St', city: 'Ямайка' }
+// { id: 1, name: 'Василь', street: '123 Main St', city: 'Ямайка' }
 console.log(userWithAddress);
 
 // =======================================
-// Literal Types (Литеральные типы)
-// Литеральные типы позволяют указать точные значения, которые может иметь тип.
+// Literal Types (Літерні типи)
+// Літерні типи дозволяють вказати точні значення, які може мати тип.
 
 type Status = "success" | "error" | "pending";
 type Result = 0 | 1 | 2;

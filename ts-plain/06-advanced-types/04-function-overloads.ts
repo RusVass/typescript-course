@@ -1,28 +1,28 @@
-// Перегрузка функций в TypeScript
+// Перевантаження функцій у TypeScript
 // ======================================
 
 /* 
-Перегрузка функций - это способ определить несколько функций с одним именем, но разными параметрами и возвращаемыми значениями.
+Перевантаження функцій — це спосіб оголосити кілька функцій з одним ім’ям, але різними параметрами та значеннями, що повертаються.
 
-Это нужно в случаях, когда мы хотим иметь несколько функций с одним именем, но разными параметрами и возвращаемыми значениями.
-Это безопасный способ реализовать полиморфизм в TypeScript.
+Це потрібно, коли ми хочемо мати кілька функцій з однаковою назвою, проте з різними параметрами та результатами.
+Це безпечний спосіб реалізувати поліморфізм у TypeScript.
 */
 
-// 1. Базовая перегрузка функций
+// 1. Базове перевантаження функцій
 function getMessage(message: string): string;
 function getMessage(message: number): number;
 function getMessage(message: string | number): string | number {
     if (typeof message === "string") {
-        return `Строковое сообщение: ${message}`;
+        return `Рядкове повідомлення: ${message}`;
     } else {
         return message;
     }
 }
 
-console.log(getMessage("Привет"));
+console.log(getMessage("Привіт"));
 console.log(getMessage(42));
 
-// 2. Перегрузка с разным количеством параметров
+// 2. Перевантаження з різною кількістю параметрів
 function processString(str: string): string;
 function processString(str: string, repeat: number): string;
 function processString(str: string, repeat?: number): string {
@@ -36,7 +36,7 @@ function processString(str: string, repeat?: number): string {
 console.log(processString("Hello"));
 console.log(processString("Hello", 3));
 
-// 3. Перегрузка методов класса
+// 3. Перевантаження методів класу
 class Calculator {
     add(a: number, b: number): number;
     add(a: string, b: string): string;

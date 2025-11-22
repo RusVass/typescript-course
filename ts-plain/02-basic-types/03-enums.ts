@@ -1,8 +1,8 @@
-// Пример 3: Перечисления (Enums) в TypeScript
+// Приклад 3: Переліки (Enums) в TypeScript
 // =========================================
 
-// 1. Числовые перечисления (Enums)
-// По умолчанию enum делает нумерацию своих свойств с 0.
+// 1. Числові переліки (Enums)
+// За замовчуванням enum нумерує свої властивості з 0.
 enum Direction {
     Up,    // 0
     Down,  // 1
@@ -13,7 +13,7 @@ enum Direction {
 const move: Direction = Direction.Up;
 console.log(move);
 
-// 2. Строковые перечисления (Enums)
+// 2. Рядкові переліки (Enums)
 enum Color {
     Red = "RED",
     Green = "GREEN",
@@ -23,7 +23,7 @@ enum Color {
 const favoriteColor: Color = Color.Blue;
 console.log(favoriteColor); 
 
-// 3. Перечисления с пользовательскими значениями
+// 3. Переліки з користувацькими значеннями
 enum ResponseCode {
     OK = 200,
     NotFound = 404,
@@ -33,16 +33,16 @@ enum ResponseCode {
 const responseCode: ResponseCode = ResponseCode.NotFound;
 console.log(responseCode);
 
-// 4. Гетерогенные перечисления (смешанные типы)
+// 4. Гетерогенні переліки (змішані типи)
 enum MixedEnum {
     No = 0,
     Yes = "YES"
 }
 
 
-console.log(Direction[0]); // Выведет: "Up"
-console.log(Direction[Direction.Up]); // Выведет: "Up"
+console.log(Direction[0]); // Виведе: "Up"
+console.log(Direction[Direction.Up]); // Виведе: "Up"
 
-// Примеры ошибок
+// Приклади помилок
 // let wrongDirection: Direction = 5;
-// let wrongColor: Color = "YELLOW"; // Ошибка: "YELLOW" не является допустимым значением Color 
+// let wrongColor: Color = "YELLOW"; // Помилка: "YELLOW" не є допустимим значенням Color 

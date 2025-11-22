@@ -1,13 +1,7 @@
-# Typescript full course from scratch
-## TypeScript самый полноценный КУРС с 0 до Pro. Теория и практика
+# TypeScript Course
 
-[Watch | Смотреть на Youtube](https://youtu.be/rPaRVcH9big)
+This repository hosts a full TypeScript curriculum that starts with tooling setup, progresses through core language features, and finishes with applied examples in Angular and React. Use it as a structured path from absolute beginner to production-ready engineer.
 
-[My Telegram | Мой телеграм канал](https://t.me/Dmitry_Kolotilshikov)
+## Video Lesson
 
-![image](preview.jpg)
-
-
-### Полноценный Курс по Typescript с самых основ до продвинутых тем. В курсе установим typescript локально, поднимем проект, настроим tsconfig, узнаем про модульность. 
-### В данном курсе по Тайпскрипт мы изучим примитивные типы, массивы и кортежи, перечисления (enums), про any и unknown типы и как их лучше использовать, утверждения типов, типы объединения (union types). Изучим типы в рамках функций и классов, узнаем про интерфейсы в сравнении с типами, а также модификаторы доступа, абстрактные классы, пространства имен, декораторы, декларации. Плюс ко всему посмотрим на Typescript в React и Angular. 
-# typescript-course
+[Watch on YouTube](https://youtu.be/rPaRVcH9big)

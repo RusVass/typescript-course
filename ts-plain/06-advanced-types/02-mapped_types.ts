@@ -1,30 +1,30 @@
 {
-// Mapped Types (Отображаемые типы)
+// Mapped Types (Відображувані типи)
 
 /* 
-Mapped Types позволяют создавать новые типы, изменяя или трансформируя существующие типы.
-Они полезны для создания более гибких и повторно используемых определений типов.
+Mapped Types дозволяють створювати нові типи, змінюючи або трансформуючи наявні.
+Вони корисні для побудови гнучкіших і багаторазових означень типів.
 */
 
-// 1. Пример использования Mapped Types для создания типа с необязательными свойствами
+// 1. Приклад використання Mapped Types для створення типу з необов’язковими властивостями
 interface IPerson {
     name: string;
     age: number;
     address: string;
 }
 
-// Создаем новый тип, в котором все свойства Person являются необязательными
+// Створюємо новий тип, у якому всі властивості Person необов’язкові
 type PartialPerson = {
     [P in keyof IPerson]?: IPerson[P];
 };
 
-const partialPerson1: PartialPerson = { name: "Серега" }; // Валидно: все свойства необязательные
+const partialPerson1: PartialPerson = { name: "Сергій" }; // Валідно: усі властивості необов’язкові
 
-// Partial уже готовый тип, который делает все свойства необязательными
-const partialPerson2: Partial<IPerson> = { name: "Игорек" };
+// Partial — уже готовий тип, що робить усі властивості необов’язковими
+const partialPerson2: Partial<IPerson> = { name: "Ігор" };
 
 
-// 2. Пример использования Mapped Types для создания типа с только для чтения свойствами
+// 2. Приклад використання Mapped Types для створення типу з властивостями лише для читання
 type ReadonlyPerson = {
     readonly [P in keyof IPerson]: IPerson[P];
 };
@@ -35,9 +35,9 @@ const readonlyPerson: ReadonlyPerson = {
     address: "123 Main St",
 };
 
-// readonlyPerson.age = 31; // Ошибка: нельзя изменить свойство только для чтения
+// readonlyPerson.age = 31; // Помилка: не можна змінити властивість лише для читання
 
-// 3. Пример использования Mapped Types для создания типа с измененными типами свойств
+// 3. Приклад використання Mapped Types для створення типу зі зміненими типами властивостей
 type StringifiedPerson = {
     [P in keyof IPerson]: string;
 };
@@ -48,7 +48,7 @@ const stringifiedPerson: StringifiedPerson = {
     address: "456 Elm St",
 };
 
-// 4. Пример использования Mapped Types для создания типа с удаленными свойствами
+// 4. Приклад використання Mapped Types для створення типу з вилученими властивостями
 type PersonWithoutAddress = {
     [P in keyof IPerson as Exclude<P, "address">]: IPerson[P];
 };
@@ -56,6 +56,6 @@ type PersonWithoutAddress = {
 const personWithoutAddress: PersonWithoutAddress = {
     name: "Charlie",
     age: 40,
-    // address: "789 Oak St", // Ошибка: свойство 'address' не существует в типе 'PersonWithoutAddress'
+    // address: "789 Oak St", // Помилка: властивість 'address' не існує в типі 'PersonWithoutAddress'
 };
 }

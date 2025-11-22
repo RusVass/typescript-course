@@ -1,11 +1,11 @@
-// Namespaces (Пространства имен)
+// Namespaces (Простори імен)
 
 /* 
-Namespaces в TypeScript используются для организации кода и предотвращения конфликтов имен.
-Они позволяют группировать связанные компоненты вместе.
+Namespaces у TypeScript використовуються для організації коду та запобігання конфліктам імен.
+Вони дозволяють групувати пов’язані компоненти разом.
 */
 
-// 1. Пример использования Namespace для группировки функций
+// 1. Приклад використання Namespace для групування функцій
 namespace MathUtils {
     export function add(a: number, b: number): number {
         return a + b;
@@ -19,7 +19,7 @@ namespace MathUtils {
 const sum = MathUtils.add(5, 3); // sum = 8
 const difference = MathUtils.subtract(5, 3); // difference = 2
 
-// 2. Пример использования Namespace для группировки интерфейсов
+// 2. Приклад використання Namespace для групування інтерфейсів
 
 /* 
     /// <reference path="models-namespace.ts" />
@@ -42,7 +42,7 @@ const difference = MathUtils.subtract(5, 3); // difference = 2
 const _user: Models.IUser = { id: 1, name: "Alice" };
 const product: Models.IProduct = { id: 1, name: "Laptop", price: 1200 };
 
-// 3. Пример использования Namespace для организации классов
+// 3. Приклад використання Namespace для організації класів
 namespace Geometry {
     export class Circle {
         constructor(public radius: number) {}

@@ -1,4 +1,4 @@
-export {} // благодаря этой записи тайпскрипт видит этот файл как модуль
+export {} // завдяки цьому запису TypeScript бачить цей файл як модуль
 
 declare global {
     interface Window {

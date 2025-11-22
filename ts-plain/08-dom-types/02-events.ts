@@ -1,7 +1,7 @@
 {
 // Events
 
-// 1. Типы для событий
+// 1. Типи для подій
 
 const myButton: HTMLButtonElement | null = document.querySelector("button");
 

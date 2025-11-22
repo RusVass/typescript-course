@@ -1,9 +1,9 @@
-// Основы классов в TypeScript
+// Основи класів у TypeScript
 // ==================================
 
-// Базовое объявление класса
+// Базове оголошення класу
 class User {
-    // Свойства класса
+    // Властивості класу
     name: string;
     age: number;
 
@@ -13,17 +13,17 @@ class User {
         this.age = age;
     }
 
-    // Методы класса
+    // Методи класу
     greet(): void {
-        console.log(`Привет, меня зовут ${this.name} и мне ${this.age}!`);
+        console.log(`Привіт, мене звати ${this.name} і мені ${this.age}!`);
     }
 
-    // Методы класса
+    // Методи класу
     isAdult(): boolean {
         return this.age >= 18;
     }
 }
 
-const userInstance = new User("Иван", 30);
-console.log(userInstance.greet()); // "Привет, меня зовут Иван и мне 30!"
+const userInstance = new User("Іван", 30);
+console.log(userInstance.greet()); // "Привіт, мене звати Іван і мені 30!"
 console.log(userInstance.isAdult()); // true

@@ -1,7 +1,7 @@
-// Наследование в TypeScript
+// Успадкування в TypeScript
 // ================================================
 
-// Базовый класс
+// Базовий клас
 class Animal {
     name: string;
   
@@ -9,28 +9,28 @@ class Animal {
       this.name = name;
     }
   
-    // Метод будет переопределен в подклассах
+    // Метод буде перевизначено в підкласах
     makeSound(): void {
       console.log("Generic animal sound");
     }
   }
   
-// Подкласс, наследующий от базового класса
+// Підклас, що наслідує базовий клас
 class Dog extends Animal {
     breed: string;
 
     constructor(name: string, breed: string) {
-      super(name); // Вызов конструктора базового класса
+      super(name); // Виклик конструктора базового класу
       this.breed = breed;
     }
   
-    // Перезаписывает метод makeSound базового класса
+    // Перевизначає метод makeSound базового класу
     makeSound(): void {
-      console.log("Гаф! Гаф!");
+      console.log("Гав! Гав!");
     }
 }
   
-// Еще один подкласс, наследующий от базового класса
+// Ще один підклас, що наслідує базовий клас
 class Cat extends Animal {
     color: string;
 
@@ -39,15 +39,15 @@ class Cat extends Animal {
       this.color = color;
     }
 
-    // Перезаписывает метод makeSound базового класса
+    // Перевизначає метод makeSound базового класу
     makeSound(): void {
-      console.log("Мяу!");
+      console.log("Няв!");
     }
 }
 
-// Создаем экземпляры разных классов
-const myDog = new Dog("Чапик", "Лабрадор");
-const myCat = new Cat("Серафима", "Персидская");
+// Створюємо екземпляри різних класів
+const myDog = new Dog("Чапко", "Лабрадор");
+const myCat = new Cat("Серафима", "Персидська");
 
-myDog.makeSound(); // "Гаф! Гаф!"
-myCat.makeSound(); // "Мяу!"
+myDog.makeSound(); // "Гав! Гав!"
+myCat.makeSound(); // "Няв!"

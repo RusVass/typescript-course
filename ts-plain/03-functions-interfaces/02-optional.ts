@@ -1,4 +1,4 @@
-// ? - опциональный параметр
+// ? - опціональний параметр
 
 function greetHello(name: string, message?: string): string {
     if (message) {
