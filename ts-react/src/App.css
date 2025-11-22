@@ -1,42 +1,179 @@
-#root {
-  max-width: 1280px;
+.playground {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 960px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.playground__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: #6366f1;
+  margin-bottom: 0.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.feature-section {
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.card {
-  padding: 2em;
+.feature-section header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.read-the-docs {
-  color: #888;
+.user-card {
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.user-card--highlight {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.4);
+}
+
+.user-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-card dl {
+  margin: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.form-example {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.form-example label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+}
+
+.form-example input,
+.form-example select {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+}
+
+.form-example button,
+.reducer-counter button,
+.fetch-example button,
+.theme-toggle {
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  background: #6366f1;
+  color: #fff;
+  cursor: pointer;
+}
+
+.generic-list {
+  border: 1px dashed rgba(99, 102, 241, 0.3);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.generic-list ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1rem;
+}
+
+.reducer-counter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reducer-counter div {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.status-badge {
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.status-badge--idle {
+  background: rgba(148, 163, 184, 0.2);
+}
+
+.status-badge--loading {
+  background: rgba(14, 165, 233, 0.2);
+}
+
+.status-badge--success {
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.status-badge--error {
+  background: rgba(248, 113, 113, 0.2);
+}
+
+.utility-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.utility-demo pre {
+  margin: 0;
+  font-size: 0.8rem;
+  background: rgba(15, 23, 42, 0.5);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.fetch-example {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stacked {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.theme-toggle {
+  align-self: flex-start;
 }

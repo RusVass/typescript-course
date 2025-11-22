@@ -1,45 +1,129 @@
-import { useState, type ReactElement } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import { Button } from "./Button";
+import { FeatureSection } from "./components/feature-section.tsx";
+import { UserCard } from "./components/user-card.tsx";
+import { FormExample } from "./components/form-example.tsx";
+import { ListWithGenerics } from "./components/list-with-generics.tsx";
+import { ReducerCounter } from "./components/reducer-counter.tsx";
+import { UnionStatusBadge, type RequestStatus } from "./components/union-status-badge.tsx";
+import { UtilityTypesDemo } from "./components/utility-types-demo.tsx";
+import { FetchExample } from "./components/fetch-example.tsx";
+import { ThemeProvider } from "./context/theme-context.tsx";
+import { ThemeToggle } from "./components/theme-toggle.tsx";
+import type { UserProfile } from "./types/user.ts";
 
-// Описуємо логотипи, які показуємо у шапці
-const logos = [
-  { href: "https://vite.dev", src: viteLogo, alt: "Vite logo", className: "logo" },
-  { href: "https://react.dev", src: reactLogo, alt: "React logo", className: "logo react" },
-] as const;
+const mentor: UserProfile = {
+  id: 1,
+  name: "Oksana Mentor",
+  role: "mentor",
+  email: "oksana@ts.dev",
+  location: "Kyiv",
+  favoriteStack: "Next.js + TS",
+};
 
-export default function App(): ReactElement {
-  // Локальний лічильник натискань
-  const [count, setCount] = useState<number>(0);
+const mentees: UserProfile[] = [
+  { id: 2, name: "Ivan Student", role: "student", email: "ivan@example.com", location: "Lviv" },
+  {
+    id: 3,
+    name: "Kateryna Student",
+    role: "student",
+    email: "kateryna@example.com",
+    location: "Odesa",
+  },
+];
 
-  const increment = (): void => setCount((value) => value + 1);
+const studyTopics = ["Generics", "Type narrowing", "Utility types", "Context API"] as const;
 
+const statuses: RequestStatus[] = [
+  { kind: "idle" },
+  { kind: "loading", message: "Fetching users..." },
+  { kind: "success", completedAt: new Date().toLocaleTimeString() },
+  { kind: "error", error: "Network unreachable" },
+];
+
+export default function App() {
   return (
-    <>
-      {/* Шапка з логотипами */}
-      <div>
-        {logos.map((logo) => (
-          <a key={logo.href} href={logo.href} target="_blank" rel="noreferrer">
-            <img src={logo.src} className={logo.className} alt={logo.alt} />
-          </a>
-        ))}
-      </div>
+    <ThemeProvider>
+      <main className="playground">
+        <header className="playground__header">
+          <div>
+            <p className="eyebrow">TS Examples Playground</p>
+            <h1>Практичні TypeScript патерни у React</h1>
+            <p>Короткі, самодостатні приклади для щоденного проектування.</p>
+          </div>
+          <ThemeToggle />
+        </header>
 
-      <h1>Vite + React</h1>
+        <FeatureSection
+          title="Typed props, опції, дефолтні значення та children"
+          summary="UserCard показує контракт пропсів і приймає довільний footer через children."
+        >
+          <UserCard
+            user={mentor}
+            subtitle="Веде курс з глибоким фокусом на TS"
+            highlightRole
+            footer={<small>last updated {new Date().toLocaleDateString()}</small>}
+          />
+        </FeatureSection>
 
-      {/* Картка з кнопкою-лічильником */}
-      <div className="card">
-        <Button onClick={increment}>count is {count}</Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
+        <FeatureSection
+          title="Typing форм та подій"
+          summary="useState з інтерфейсом форми + типи ChangeEvent/FormEvent гарантують валідні поля."
+        >
+          <FormExample />
+        </FeatureSection>
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+        <FeatureSection
+          title="Generics у функціях та компонентах"
+          summary="ListWithGenerics показує універсальний рендер, а buildDictionary забезпечує typed lookup."
+        >
+          <div className="stacked">
+            <ListWithGenerics
+              title="Менті"
+              items={mentees}
+              getKey={(person) => person.email}
+              renderItem={(person) => `${person.name} — ${person.location ?? "Remote"}`}
+            />
+            <ListWithGenerics
+              title="Теми"
+              items={studyTopics}
+              getKey={(topic) => topic}
+              renderItem={(topic) => topic}
+            />
+          </div>
+        </FeatureSection>
+
+        <FeatureSection
+          title="useReducer та суворо типізовані дії"
+          summary="Discriminated union для CounterAction гарантує, що всі кейси оброблені."
+        >
+          <ReducerCounter />
+        </FeatureSection>
+
+        <FeatureSection
+          title="Type narrowing + discriminated unions"
+          summary="UnionStatusBadge звужує тип по ключу kind і малює бейджі стану."
+        >
+          <div className="status-grid">
+            {statuses.map((status, index) => (
+              <UnionStatusBadge key={`${status.kind}-${index}`} status={status} />
+            ))}
+          </div>
+        </FeatureSection>
+
+        <FeatureSection
+          title="Utility Types на практиці"
+          summary="Partial, Pick, Omit, Required, Readonly формують різні представлення користувача."
+        >
+          <UtilityTypesDemo />
+        </FeatureSection>
+
+        <FeatureSection
+          title="Generic hook + типізований запит/відповідь"
+          summary="useFetch<T> приймає ApiRequest<T> та повертає безпечні дані."
+        >
+          <FetchExample />
+        </FeatureSection>
+      </main>
+    </ThemeProvider>
   );
 }
